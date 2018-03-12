@@ -1,24 +1,22 @@
 import React, { Component, Fragment } from "react";
 import Todo from "../components/Todo/Todo";
 import TodoCounter from "../components/TodoCounter/TodoCounter";
+import AddTodo from "../components/AddTodo/AddTodo";
 
-class Todos extends Component {
+export default class Todos extends Component {
+  state = {
+    items: ["Buy milk", "Call doctor", "Shave your head", "Pet your dog"]
+  };
   render() {
-    let todoitems = [
-      "Buy milk",
-      "Call doctor",
-      "Shave your head",
-      "Pet your dog"
-    ];
-
-    const todoNodes = todoitems.map(x => <Todo text={x} key={x} />);
+    const todoNodes = this.state.items.map(item => (
+      <Todo text={item} key={item} />
+    ));
     return (
       <Fragment>
-        <TodoCounter countItems={todoitems.length} />
-        <div>{todoNodes}</div>
+        <TodoCounter countItems={this.state.items.length} />
+        <div> {todoNodes} </div>
+        <AddTodo />
       </Fragment>
     );
   }
 }
-
-export default Todos;

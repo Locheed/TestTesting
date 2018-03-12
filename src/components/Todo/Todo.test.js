@@ -5,7 +5,7 @@ import Todo from "./Todo";
 describe("Todoitem  component", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<Todo text="buy milk" />);
+    wrapper = shallow(<Todo />);
   });
 
   it("receives props of text", () => {
