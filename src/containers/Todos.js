@@ -4,18 +4,27 @@ import TodoCounter from "../components/TodoCounter/TodoCounter";
 import AddTodo from "../components/AddTodo/AddTodo";
 
 export default class Todos extends Component {
-  state = {
-    items: ["Buy milk", "Call doctor", "Shave your head", "Pet your dog"]
+  constructor() {
+    super();
+    this.state = {
+      items: ["Buy milk", "Call doctor", "Shave your head", "Pet your dog"]
+    };
+  }
+
+  handleAddItem = event => {
+    console.log(event);
+    this.setState({ items: [...this.state.items, event] });
   };
+
   render() {
-    const todoNodes = this.state.items.map(item => (
-      <Todo text={item} key={item} />
+    const todoNodes = this.state.items.map((item, i) => (
+      <Todo text={item} key={item + i} />
     ));
     return (
       <Fragment>
         <TodoCounter countItems={this.state.items.length} />
         <div> {todoNodes} </div>
-        <AddTodo />
+        <AddTodo handleSubmit={this.handleAddItem} />
       </Fragment>
     );
   }
