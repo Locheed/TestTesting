@@ -9,10 +9,10 @@ describe("AddTodo component", () => {
   });
 
   it("renders inputbox", () => {
-    expect(wrapper.find("input")).toHaveLength(1);
+    expect(wrapper.find("#input-box")).toHaveLength(1);
   });
 
   it("renders add button", () => {
-    expect(wrapper.find("button")).toHaveLength(1);
+    expect(wrapper.find("#submit-button")).toHaveLength(1);
   });
 });
